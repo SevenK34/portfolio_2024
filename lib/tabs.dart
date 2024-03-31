@@ -27,7 +27,13 @@ class _TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
             children: [
               Row(
                 children: [
-                  Expanded(flex: 1, child: ,),
+                  const Expanded(
+                    flex: 1,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [Text("Pietro Ismaele Cardile")],
+                    ),
+                  ),
                   Expanded(
                     flex: 1,
                     child: TabBar(
@@ -35,7 +41,8 @@ class _TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
                           .map((page) => TextButton.icon(
                                 onPressed: () {
                                   tabController.animateTo(pages.indexOf(page),
-                                      duration: const Duration(milliseconds: 300));
+                                      duration:
+                                          const Duration(milliseconds: 300));
                                 },
                                 icon: page.icon,
                                 label: Text(page.title),
@@ -43,9 +50,18 @@ class _TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
                           .toList(),
                     ),
                   ),
-                  Expanded(flex: 1, child: FilledButton.icon(
-                    icon: const Icon(Icons.email_outlined), label: const Text("Contattami"), onPressed: () {}
-                  ),),
+                  Expanded(
+                    flex: 1,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        FilledButton.icon(
+                            icon: const Icon(Icons.email_outlined),
+                            label: const Text("Contattami"),
+                            onPressed: () {}),
+                      ],
+                    ),
+                  ),
                 ],
               ),
               Container(
